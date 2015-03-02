@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HouseAuthApp
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    -if flash[:notice]
+      = flash[:notice]
+    -if current_user
+      = link_to 'Sign out', sign_out_path
+    -else
+      = link_to 'Sign in', sign_in_path
+      = link_to 'Sign up', sign_up_path
+    = yield

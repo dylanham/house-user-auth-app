@@ -1,0 +1,10 @@
+%h1 List of Homes
+= link_to 'New Home', new_house_path
+%hr
+- @houses.each do |house|
+  %p= link_to house.name, house_path(house)
+  %p= house.size
+  %p
+    = link_to 'Edit', edit_house_path(house)
+    = link_to 'Delete', house_path(house), method: :delete
+  %hr
